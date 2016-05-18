@@ -1,3 +1,6 @@
+package fr.iutvalence.info.dut.m2107;
+
+
 public class Character {
 
 	private Tile pos;
