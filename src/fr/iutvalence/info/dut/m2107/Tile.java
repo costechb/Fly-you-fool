@@ -1,7 +1,8 @@
 package fr.iutvalence.info.dut.m2107;
 
+import javax.swing.JPanel;
 
-public class Tile {
+public class Tile extends JPanel {
 
 	Character occupant;
 	private int TILESIZE = 32;
