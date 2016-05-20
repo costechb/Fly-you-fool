@@ -19,7 +19,13 @@ public class Tile {
 		// TODO - implement Tile.Tile
 		throw new UnsupportedOperationException();
 	}
-
+	
+	@Override
+	public String toString() {
+		
+		return "Tile [occupant=" + occupant + ", TILESIZE=" + TILESIZE	+ ", occuped=" + occuped + ", x=" + x + ", y=" + y + "]";
+	}
+	
 	public void showTile() {
 		// TODO - implement Tile.showTile
 		throw new UnsupportedOperationException();

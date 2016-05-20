@@ -5,6 +5,8 @@ public class Hero extends Character {
 
 	public void afficheHero() {
 		// TODO - implement Hero.afficheHero
+		
+		
 		throw new UnsupportedOperationException();
 	}
 
@@ -14,6 +16,8 @@ public class Hero extends Character {
 	 */
 	public void moveHero(char letter) {
 		// TODO - implement Hero.moveHero
+		
+		
 		throw new UnsupportedOperationException();
 	}
 
