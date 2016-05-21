@@ -10,11 +10,13 @@ public class Hero extends Character {
 
 	/**
 	 * 
-	 * @param letter
+	 * @param tile
 	 */
-	public void moveHero(char letter) {
+	public void moveHero(Tile tile) {
 		// TODO - implement Hero.moveHero
-		throw new UnsupportedOperationException();
+		// J'ai changé le paramètre letter en tile
+		// Pour prendre sa position et lui en attribuer une nouvelle
+		this.setPos(tile);
 	}
 
 	/**
