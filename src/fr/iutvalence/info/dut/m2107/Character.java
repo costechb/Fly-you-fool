@@ -11,7 +11,7 @@ public class Character {
 	 * @param mov
 	 */
 	public boolean checkMov(Tile mov) {
-		// TODO  Check cell is empty
+		// Check cell is empty
 		if(mov.isOccuped()){
 			return false;
 		}
@@ -34,4 +34,16 @@ public class Character {
 		this.mov = mov;
 	}
 
+	public void moveCharacter(Character charac, Tile pos) {
+		checkMov(pos);
+		
+		throw new UnsupportedOperationException();
+	}
+	
+	public void stopCharacter() {
+		
+		throw new UnsupportedOperationException();
+	}
+
+	
 }
