@@ -4,6 +4,7 @@ package fr.iutvalence.info.dut.m2107;
 public class Tile {
 
 	Character occupant;
+	// Tilesize : taille de la tuile niveau graphique
 	private int TILESIZE = 32;
 	private boolean occuped;
 	private int x;
@@ -69,6 +70,7 @@ public class Tile {
 
 	public boolean isOccuped() {
 		return this.occuped;
+		
 	}
 
 	/**

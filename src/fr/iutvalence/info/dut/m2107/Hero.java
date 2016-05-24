@@ -5,7 +5,7 @@ public class Hero extends Character {
 
 	public void afficheHero() {
 		// TODO - implement Hero.afficheHero
-		throw new UnsupportedOperationException();
+		this.getPos();
 	}
 
 	/**
@@ -16,7 +16,7 @@ public class Hero extends Character {
 		// TODO - implement Hero.moveHero
 		// J'ai changé le paramètre letter en tile
 		// Pour prendre sa position et lui en attribuer une nouvelle
-		this.setPos(tile);
+		this.setMov(tile);
 	}
 
 	/**

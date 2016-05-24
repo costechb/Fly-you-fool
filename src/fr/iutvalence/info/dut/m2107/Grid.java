@@ -41,7 +41,7 @@ public class Grid {
 	 * @param x
 	 * @param y
 	 */
-	public boolean inGrid(float x, float y) {
+	public boolean inGrid(int x, int y) {
 		// TODO - implement Grid.inGrid
 		throw new UnsupportedOperationException();
 	}

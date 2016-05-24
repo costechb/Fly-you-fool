@@ -5,6 +5,7 @@ public class Character {
 
 	private Tile pos;
 	private Tile mov;
+	private Hero hero;
 
 	/**
 	 * 
