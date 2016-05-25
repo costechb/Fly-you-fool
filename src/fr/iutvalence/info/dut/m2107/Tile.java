@@ -5,10 +5,53 @@ import javax.swing.JPanel;
 public class Tile extends JPanel {
 
 	Character occupant;
+	// Tilesize : taille de la tuile niveau graphique
 	private int TILESIZE = 32;
 	private boolean occuped;
 	private int x;
 	private int y;
+
+	/**
+	 * @return the occupant
+	 */
+	public Character getOccupant() {
+		return occupant;
+	}
+
+	/**
+	 * @param occupant the occupant to set
+	 */
+	public void setOccupant(Character occupant) {
+		this.occupant = occupant;
+	}
+
+	/**
+	 * @return the x
+	 */
+	public int getX() {
+		return x;
+	}
+
+	/**
+	 * @param x the x to set
+	 */
+	public void setX(int x) {
+		this.x = x;
+	}
+
+	/**
+	 * @return the y
+	 */
+	public int getY() {
+		return y;
+	}
+
+	/**
+	 * @param y the y to set
+	 */
+	public void setY(int y) {
+		this.y = y;
+	}
 
 	/**
 	 * 
@@ -28,6 +71,7 @@ public class Tile extends JPanel {
 
 	public boolean isOccuped() {
 		return this.occuped;
+		
 	}
 
 	/**

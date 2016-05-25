@@ -22,8 +22,9 @@ public class Grid {
 	 * @param x
 	 * @param y
 	 */
-	public void getTile(float x, float y) {
+	public Tile getTile(int x,  int y) {
 		// TODO - implement Grid.getTile
+		// j'ai changé le float en int puisque une tile est défini sur un int x et int y 
 		throw new UnsupportedOperationException();
 	}
 
@@ -40,7 +41,7 @@ public class Grid {
 	 * @param x
 	 * @param y
 	 */
-	public boolean inGrid(float x, float y) {
+	public boolean inGrid(int x, int y) {
 		// TODO - implement Grid.inGrid
 		throw new UnsupportedOperationException();
 	}
