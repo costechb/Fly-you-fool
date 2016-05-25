@@ -7,6 +7,11 @@ public class Character {
 	private Tile mov;
 	private Hero hero;
 
+	public Character(int x, int y) {
+		// TODO Auto-generated constructor stub
+		//
+	}
+
 	/**
 	 * 
 	 * @param mov

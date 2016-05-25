@@ -1,8 +1,8 @@
 package fr.iutvalence.info.dut.m2107;
 
-import javax.swing.JPanel;
 
-public class Tile extends JPanel {
+
+public class Tile {
 
 	Character occupant;
 	// Tilesize : taille de la tuile niveau graphique
@@ -60,7 +60,7 @@ public class Tile extends JPanel {
 	 * @param solid
 	 */
 	public Tile(int x, int y, boolean solid) {
-		// TODO - implement Tile.Tile
+		
 		throw new UnsupportedOperationException();
 	}
 
