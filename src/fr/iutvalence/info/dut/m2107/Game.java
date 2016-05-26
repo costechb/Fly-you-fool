@@ -1,5 +1,6 @@
 package fr.iutvalence.info.dut.m2107;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
@@ -36,12 +37,17 @@ public class Game extends JPanel {
     }
     
     @Override
+    /**
+     * méthode obligatoire pour dessiner des trucs
+     * Il faut d'ailleurs utiliser repaint (qui utilise paint)
+     */
     public void paint(Graphics g) {
         super.paint(g);
         Graphics2D g2d = (Graphics2D) g;
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
             RenderingHints.VALUE_ANTIALIAS_ON);
-        g2d.fillOval(x, y, 30, 30);
+        this.map.initWorld();
+        this.map.buildWorld(g2d);
     }
 
 	
@@ -62,17 +68,20 @@ public class Game extends JPanel {
 	
 	//J'ai supprimé le Main et je l'ai mis là, ça sert a rien d'avoir un Game et un Main ou il y a rien
 	public static void main(String[] args) throws InterruptedException {
+		//Create a window
 		JFrame myFrame = new JFrame("Fly you Fools");
 		Game game = new Game();
+		
+		//Default window options
 		myFrame.add(game);
 		myFrame.setSize(500,500);
 		myFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		myFrame.setVisible(true);
-		
-		while (true) {
-            game.moveBall();
-            game.repaint();
-            Thread.sleep(10);
+
+		//while (true) {
+        //    game.moveBall();
+        //    game.repaint();
+        //    Thread.sleep(10);
         }
 
 		/**
@@ -85,4 +94,3 @@ public class Game extends JPanel {
 	
 }
 	
-}

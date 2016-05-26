@@ -67,6 +67,7 @@ public class IHM_Keyboard {
 			
 			//Reculer d'une case
 			// Récupérer la case sur laquelle on veut se déplacer
+			//TODO: utiliser Grid, les tile n'ont pas de coordonnées
 			Tile tileToMoveBackward = this.map.getTile( tile.getX() - 1 , tile.getY()  );
 			// On appelle la méthode de la vérification de la case
 			if (this.hero.checkMov(tileToMoveBackward)) {
@@ -82,6 +83,7 @@ public class IHM_Keyboard {
 			
 			// Aller à droite d'une case
 			// Récupérer la case sur laquelle on veut se déplacer
+			//TODO: utiliser Grid, les tile n'ont pas de coordonnées
 			Tile tileToMoveRight = this.map.getTile( tile.getX()  , tile.getY() - 1);
 			// On appelle la méthode de la vérification de la case
 			if (this.hero.checkMov(tileToMoveRight )) {

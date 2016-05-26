@@ -10,7 +10,7 @@ public class Grid {
 	Tile[] tabgrid;
 	private int nbCol;
 	private int nbLig;
-
+	private int TILESIZE = 20;
 	public Tile[][] map;
 	public static final int MAX_LENGTH_DEFAULT=40;
 	public static final int MAX_WIDTH_DEFAULT=40;
@@ -27,21 +27,18 @@ public class Grid {
 
 	private final int OFFSET = 30;
 	private final int SPACE = 20;
-	private int width = 0;
-	private int height = 0;
 
-	private ArrayList walls = new ArrayList();
-	private ArrayList areas = new ArrayList();
 
-	private int getHeight() {
 
-		return this.height;
-	}
+	//private int getHeight() {
 
-	private int getWidth() {
+	//	return this.height;
+	//}
 
-		return this.width;
-	}
+	//private int getWidth() {
+
+	//	return this.width;
+	//}
 
 	/**Grid
 	 * Constructor or Grid
@@ -51,6 +48,7 @@ public class Grid {
 		map = new Tile[nbCol][nbLig];
 		for (int i=0; i<MAX_LENGTH_DEFAULT; i++) {
 			for (int j=0; j<MAX_WIDTH_DEFAULT; j++) { 
+				
 
 
 			}
@@ -61,8 +59,8 @@ public class Grid {
 
 	public void showMap(){
 		System.out.println();
-		for(int i=0; i<height; i++){
-			for(int j=0; j<width; j++){
+		for(int i=0; i<levelheight; i++){
+			for(int j=0; j<levelwidth; j++){
 				System.out.print(" | " + map[i][j]);
 			}
 			System.out.println(" | ");
@@ -73,22 +71,27 @@ public class Grid {
 
 
 	private String level1 =
-				     "################\n"
-					+"###            #\n"
-					+"#              #\n"
-					+"#     #####    #\n"
-					+"#     #####    #\n"
-					+"#     #####   x#\n"
-					+"#    @#####    #\n"
-					+"#    ######    #\n"
-					+"#  x ######    #\n"
-					+"##00########00##\n";
+				     " ################ \n"
+					+" ###          ### \n"
+					+" #              # \n"
+					+" #     #####    # \n"
+					+" #     #####    # \n"
+					+" #     #####   x# \n"
+					+" #    @#####    # \n"
+					+" #    ######    # \n"
+					+" #  x ######    # \n"
+					+" ##00########00## \n";
 	// #:murs
 	// @:personnage
 	// x:ennemi
 	// 0:porte de sortie
 	// la porte a coté du héro est inaccessible a cause de l'ennemi,pour faire genre tutoriel
 
+	private int levelwidth = 16;
+	private int levelheight = 10;
+	
+	
+	
 	/**
 	 * 
 	 * @param x
@@ -119,29 +122,31 @@ public class Grid {
 	}
 
 	@SuppressWarnings("unchecked")
+	/**
+	 * Reads the String level and place it in the map
+	 */
 	public final void initWorld() {
-		int x = OFFSET;
-		int y = OFFSET;
-
+		
+		int ordonnee=0;
+		int abcisse=0;
 		for (int i = 0; i < level1.length(); i++) {
+			abcisse=i%levelwidth;
 			char item = level1.charAt(i);
-			Tile tile;
 			if (item == '\n') {
-				y += SPACE;
-				if (this.width < x)
-					this.width = x;
-				x = OFFSET;
+				ordonnee++;
+				abcisse=0;
 			} else if (item == '#') {
-				tile = new Tile(x, y, true);
-				walls.add(tile);
-				x += SPACE;
+				//it is a wall so it is occuped				
+				map[abcisse][ordonnee]= new Tile(true);
+				
 			} else if (item == '@') {
-				Hero hero = new Hero(x, y);
-				x += SPACE;
+				//TODO: Hero(tile) quand il y aura la méthode
+				//Hero hero = new Hero(x,y);
 			} else if (item == ' ') {
-				x += SPACE;
+				//it is free space so it is not occuped
+				map[abcisse][ordonnee]= new Tile(false);
+				
 			}
-			height = y;
 		}
 	}
 	/**
@@ -149,34 +154,54 @@ public class Grid {
 	 * @param g
 	 * display the world on the screen
 	 */
-	@SuppressWarnings("unchecked")
+	// Nouvelle version utilisant Grid et Tile
+	
 	public void buildWorld(Graphics g) {
 
 		g.setColor(new Color(250, 240, 170));
-		g.fillRect(0, 0, this.getWidth(), this.getHeight());
-
-		@SuppressWarnings("rawtypes")
-		ArrayList world = new ArrayList();
-		world.addAll(walls);
-		world.addAll(areas);
+		//g.fillRect(0, 0, this.getWidth(), this.getHeight());
 
 
-		for (int i = 0; i < world.size(); i++) {
 
-			Character item = (Character) world.get(i);
 
-			if ((item instanceof Hero) || (item instanceof Enemy)) {
-				g.drawImage(item.getImage(), item.getPos().getX() + 2, item.getPos().getY() + 2, (ImageObserver) this);
-			} else {
-				g.drawImage(item.getImage(), item.getPos().getX(), item.getPos().getY(), (ImageObserver) this);
-			}
+		for (int i = 0; i < levelwidth; i++) {
+			for (int j=0; j< levelheight; j++) {
+				if(map[i][j].occupant==null){
+					if(map[i][j].isSolid()){
+						g.setColor(new Color(102, 51, 0));
+						g.fillRect(i*TILESIZE, j*TILESIZE, TILESIZE, TILESIZE);
+					}
+					else {
+						g.setColor(new Color(255, 204, 0));
+						g.fillRect(i*TILESIZE, j*TILESIZE, TILESIZE, TILESIZE);
+						
+					}
+				}
+				else if (map[i][j].occupant instanceof Character){
+					g.setColor(new Color(255, 0, 0));
+					g.fillRect(i*TILESIZE, j*TILESIZE, TILESIZE, TILESIZE);
+				}
+				
+				
 
-			if (completed) {
-				g.setColor(new Color(0, 0, 0));
-				g.drawString("Completed", 25, 20);
+
+				
+				
+				// truc cool: si est un Hero 
+				if (map[i][j].getOccupant() instanceof Hero){
+					//g.drawImage(item.getImage(), item.getPos().getX() + 2, item.getPos().getY() + 2, (ImageObserver) this);
+				}
+				else if (map[i][j].getOccupant() instanceof Enemy){
+					//g.drawImage(item.getImage(), item.getPos().getX(), item.getPos().getY(), (ImageObserver) this);
+				}
+				
+				if (completed) {
+					g.setColor(new Color(0, 0, 0));
+					g.drawString("Completed", 25, 20);
+				}
 			}
 		}
+
 	}
-	
 }
 
