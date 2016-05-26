@@ -10,7 +10,7 @@ public class Hero extends Character {
 	}
 
 	public void afficheHero() {
-		// TODO - implement Hero.afficheHero
+		
 		//Character.getPos();
 		throw new UnsupportedOperationException();
 		

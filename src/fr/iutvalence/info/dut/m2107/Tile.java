@@ -57,11 +57,12 @@ public class Tile {
 	 * 
 	 * @param x
 	 * @param y
-	 * @param solid
+	 * @param occupation
+	 * 
 	 */
-	public Tile(int x, int y, boolean solid) {
+	public Tile(int x, int y, boolean occupation) {
 		
-		throw new UnsupportedOperationException();
+
 	}
 	
 	@Override

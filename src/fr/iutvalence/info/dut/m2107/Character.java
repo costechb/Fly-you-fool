@@ -31,7 +31,7 @@ public class Character {
 		else{return true;}
 		
 	}
-	public Tile getPos() {
+	public  Tile getPos() {
 		return pos;
 	}
 
