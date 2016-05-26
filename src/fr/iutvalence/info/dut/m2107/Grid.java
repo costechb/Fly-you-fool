@@ -1,5 +1,8 @@
 package fr.iutvalence.info.dut.m2107;
 
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.image.ImageObserver;
 import java.util.ArrayList;
 
 public class Grid {
@@ -7,11 +10,20 @@ public class Grid {
 	Tile[] tabgrid;
 	private int nbCol;
 	private int nbLig;
-<<<<<<< HEAD
+
 	public Tile[][] map;
 	public static final int MAX_LENGTH_DEFAULT=40;
 	public static final int MAX_WIDTH_DEFAULT=40;
-=======
+	
+	/**
+	 * IS the level finished or not
+	 */
+	public boolean completed = false;
+	
+	
+	/**
+	 * For display window
+	 */
 	private final int OFFSET = 30;
 	private final int SPACE = 20;
 	private int width = 0;
@@ -19,14 +31,34 @@ public class Grid {
 	
 	private ArrayList walls = new ArrayList();
 	private ArrayList areas = new ArrayList();
->>>>>>> branch 'master' of https://github.com/costechb/Fly-you-fool.git
+	
+	private int getHeight() {
+		
+		return this.height;
+	}
+
+	private int getWidth() {
+		
+		return this.width;
+	}
+
+	
+	
+	/**
+	 * 
+	 */
+	
+	
+	
+	
+	
 	/**
 	 * 
 	 * @param x
 	 * @param y
 	 */
 	public Grid() {
-		// TODO - implement Grid.Grid
+		
 		map = new Tile[nbCol][nbLig];
 		for (int i=0; i<MAX_LENGTH_DEFAULT; i++) {
 			for (int j=0; j<MAX_WIDTH_DEFAULT; j++) { 
@@ -84,11 +116,11 @@ public class Grid {
 		throw new UnsupportedOperationException();
 	}
 
-<<<<<<< HEAD
-}
-/* Je suis une coccinnelle */
-=======
+
+
+
 	
+@SuppressWarnings("unchecked")
 public final void initWorld() {
         
         int x = OFFSET;
@@ -121,9 +153,42 @@ public final void initWorld() {
             height = y;
         }
     }
+/**
+ * 
+ * @param g
+ * display the world on the screen
+ */
+@SuppressWarnings("unchecked")
+public void buildWorld(Graphics g) {
+
+    g.setColor(new Color(250, 240, 170));
+    g.fillRect(0, 0, this.getWidth(), this.getHeight());
+
+    @SuppressWarnings("rawtypes")
+	ArrayList world = new ArrayList();
+    world.addAll(walls);
+    world.addAll(areas);
+    
+
+    for (int i = 0; i < world.size(); i++) {
+
+        Character item = (Character) world.get(i);
+
+        if ((item instanceof Hero) || (item instanceof Enemy)) {
+            g.drawImage(item.getImage(), item.getPos().getX() + 2, item.getPos().getY() + 2, (ImageObserver) this);
+        } else {
+            g.drawImage(item.getImage(), item.getPos().getX(), item.getPos().getY(), (ImageObserver) this);
+        }
+
+        if (completed) {
+            g.setColor(new Color(0, 0, 0));
+            g.drawString("Completed", 25, 20);
+        }
+
+    }
+}
+
 
 	
-	
-	
 }
->>>>>>> branch 'master' of https://github.com/costechb/Fly-you-fool.git
+

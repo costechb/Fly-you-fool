@@ -1,12 +1,19 @@
 package fr.iutvalence.info.dut.m2107;
 
+import java.awt.Image;
+
 
 public class Character {
 
 	private Tile pos;
 	private Tile mov;
 	private Hero hero;
-
+	
+	/**
+	 * The image of the character
+	 */
+	private Image image;
+	
 	public Character(int x, int y) {
 		// TODO Auto-generated constructor stub
 		//
@@ -48,5 +55,19 @@ public class Character {
 	public void setMov(Tile mov) {
 		this.mov = mov;
 	}
+	
+	/**
+	 * To get the image of the character
+	 */
+	public Image getImage() {
+        return this.image;
+    }
+	/**
+	 * To set the image of the character
+	 * @param img
+	 */
+    public void setImage(Image img) {
+        image = img;
+    }
 
 }
