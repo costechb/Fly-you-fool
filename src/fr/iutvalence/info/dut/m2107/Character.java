@@ -13,7 +13,7 @@ public class Character {
 	 * The image of the character
 	 */
 	private Image image;
-	
+
 	public Character(int x, int y) {
 		// TODO Auto-generated constructor stub
 		//
@@ -24,34 +24,25 @@ public class Character {
 	 * @param mov
 	 */
 	public boolean checkMov(Tile mov) {
-		// TODO - implement Character.checkMov
-		throw new UnsupportedOperationException();
+		// Check cell is empty
+		if(mov.isOccuped()){
+			return false;
+		}
+		else{return true;}
+		
 	}
-
-	/**
-	 * @return the pos
-	 */
 	public Tile getPos() {
 		return pos;
 	}
 
-	/**
-	 * @param pos the pos to set
-	 */
-	public void setPos(Tile pos) {
-		this.pos = pos;
-	}
-
-	/**
-	 * @return the mov
-	 */
 	public Tile getMov() {
 		return mov;
 	}
 
-	/**
-	 * @param mov the mov to set
-	 */
+	public void setPos(Tile pos) {
+		this.pos = pos;
+	}
+
 	public void setMov(Tile mov) {
 		this.mov = mov;
 	}
@@ -70,4 +61,14 @@ public class Character {
         image = img;
     }
 
+	public void moveCharacter(Character charac, Tile pos) {
+		checkMov(pos);
+		
+		throw new UnsupportedOperationException();
+	}
+	
+	public void stopCharacter() {
+		
+		throw new UnsupportedOperationException();
+	}
 }

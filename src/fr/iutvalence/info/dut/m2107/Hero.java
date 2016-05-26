@@ -3,6 +3,7 @@ package fr.iutvalence.info.dut.m2107;
 
 public class Hero extends Character {
 
+	
 	public Hero(int x, int y) {
 		super(x, y);
 		// TODO Auto-generated constructor stub
@@ -10,7 +11,9 @@ public class Hero extends Character {
 
 	public void afficheHero() {
 		// TODO - implement Hero.afficheHero
-		this.getPos();
+		Character.getPos();
+		throw new UnsupportedOperationException();
+		
 	}
 
 	/**
@@ -19,9 +22,13 @@ public class Hero extends Character {
 	 */
 	public void moveHero(Tile tile) {
 		// TODO - implement Hero.moveHero
-		// J'ai changé le paramètre letter en tile
+
+		this.setMov(tile);	
+		throw new UnsupportedOperationException();
+		// J'ai changï¿½ le paramï¿½tre letter en tile
 		// Pour prendre sa position et lui en attribuer une nouvelle
-		this.setMov(tile);
+		
+
 	}
 
 	/**
@@ -30,6 +37,7 @@ public class Hero extends Character {
 	 */
 	public void stopHero(char letter) {
 		// TODO - implement Hero.stopHero
+		
 		throw new UnsupportedOperationException();
 	}
 
