@@ -7,11 +7,11 @@ public class Grid {
 	Tile[] tabgrid;
 	private int nbCol;
 	private int nbLig;
-<<<<<<< HEAD
+
 	public Tile[][] map;
 	public static final int MAX_LENGTH_DEFAULT=40;
 	public static final int MAX_WIDTH_DEFAULT=40;
-=======
+
 	private final int OFFSET = 30;
 	private final int SPACE = 20;
 	private int width = 0;
@@ -19,7 +19,7 @@ public class Grid {
 	
 	private ArrayList walls = new ArrayList();
 	private ArrayList areas = new ArrayList();
->>>>>>> branch 'master' of https://github.com/costechb/Fly-you-fool.git
+
 	/**
 	 * 
 	 * @param x
@@ -63,6 +63,7 @@ public class Grid {
 	 */
 	public Tile getTile(int x,  int y) {
 		// TODO - implement Grid.getTile
+		// j'ai changé le float en int puisque une tile est défini sur un int x et int y 
 		throw new UnsupportedOperationException();
 	}
 
@@ -84,10 +85,10 @@ public class Grid {
 		throw new UnsupportedOperationException();
 	}
 
-<<<<<<< HEAD
-}
-/* Je suis une coccinnelle */
-=======
+
+
+
+
 	
 public final void initWorld() {
         
@@ -120,10 +121,9 @@ public final void initWorld() {
 
             height = y;
         }
-    }
+    
+	}
+}	
+	
+	
 
-	
-	
-	
-}
->>>>>>> branch 'master' of https://github.com/costechb/Fly-you-fool.git
