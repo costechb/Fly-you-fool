@@ -31,4 +31,15 @@ public class Game extends JFrame {
 
 	}
 
+	
+	//J'ai supprimé le Main et je l'ai mis là, ça sert a rien d'avoir un Game et un Main ou il y a rien
+	public static void main(String[] args)  {
+		Game game = new Game();
+		game.setVisible(true);
+		game.play();
+	
+	
+	
+}
+	
 }
