@@ -3,8 +3,14 @@ package fr.iutvalence.info.dut.m2107;
 
 public class Character {
 
-	private Tile pos;
-	private Tile mov;
+	private static Tile pos;
+	private static Tile mov;
+	
+
+	public Character(int x, int y) {
+		// TODO Auto-generated constructor stub
+		//
+	}
 
 	/**
 	 * 
@@ -18,7 +24,7 @@ public class Character {
 		else{return true;}
 		
 	}
-	public Tile getPos() {
+	public static Tile getPos() {
 		return pos;
 	}
 
@@ -44,6 +50,8 @@ public class Character {
 		
 		throw new UnsupportedOperationException();
 	}
+}
 
 	
-}
+
+	
