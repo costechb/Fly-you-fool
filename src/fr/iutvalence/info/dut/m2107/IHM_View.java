@@ -1,9 +1,30 @@
 package fr.iutvalence.info.dut.m2107;
-
+import javax.swing.JFrame;
+import javax.swing.WindowConstants;
 import java.util.ArrayList;
 
 public class IHM_View {
 
+	public static void main(String args[]){
+
+	}
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	/**
 	 * 
 	 * @param map
