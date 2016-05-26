@@ -51,7 +51,3 @@ public class Character {
 		throw new UnsupportedOperationException();
 	}
 }
-
-	
-
-	
