@@ -73,7 +73,7 @@ public class Grid {
 
 
 	private String level1 =
-			"################\n"
+					 "################\n"
 					+"###            #\n"
 					+"#              #\n"
 					+"#     #####    #\n"

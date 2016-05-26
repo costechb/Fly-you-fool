@@ -2,7 +2,9 @@ package fr.iutvalence.info.dut.m2107;
 
 import java.util.*;
 
-public class Game {
+import javax.swing.JFrame;
+
+public class Game extends JFrame {
 
 	private Hero hero;
 	private ArrayList<Enemy> enemies;
@@ -17,10 +19,12 @@ public class Game {
 	 * @param y 
 	 * @param y
 	 */
-	public Game(Tile posHero) {
+	//J'ai enlevé le posHero, la position est dans Grid au début du jeu
+	public Game() {
 		this.map= new Grid();
-		this.hero=new Hero(posHero);
 		this.enemies=new ArrayList<Enemy>();
+		map.initWorld();
+		
 	}
 
 	public void play() {
