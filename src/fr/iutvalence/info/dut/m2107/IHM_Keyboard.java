@@ -26,13 +26,13 @@ public class IHM_Keyboard {
 	 * 
 	 * @param letter
 	 */
-	public void moveHero(char letter) throws IHM_KeyboardException {
+	public void moveHero(char Move) throws IHM_KeyboardException {
 		// TODO - implement IHM_Keyboard.moveHero
 		
 		// Récupérer la position du héro
 		Tile tile = this.hero.getPos();
 		// Utiliser le scanner dans le main, récupérer la touche saisi et la passer en paramètre de movehero
-		switch (letter) {
+		switch (Move) {
 		
 		case 'z':
 			// Avancer d'une case

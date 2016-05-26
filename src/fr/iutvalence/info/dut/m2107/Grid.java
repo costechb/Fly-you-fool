@@ -159,7 +159,7 @@ public class Grid {
 		ArrayList world = new ArrayList();
 		world.addAll(walls);
 		world.addAll(areas);
-
+		//TODO: Add Hero and enemies
 
 		for (int i = 0; i < world.size(); i++) {
 

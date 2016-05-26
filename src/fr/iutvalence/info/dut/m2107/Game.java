@@ -1,7 +1,7 @@
 package fr.iutvalence.info.dut.m2107;
 
 import java.util.*;
-
+import java.util.Scanner;
 import javax.swing.JFrame;
 
 public class Game extends JFrame {
@@ -37,6 +37,9 @@ public class Game extends JFrame {
 		Game game = new Game();
 		game.setVisible(true);
 		game.play();
+		Scanner sc = new Scanner(System.in);
+		String str = sc.nextLine();
+		char Move = str.charAt(0);
 	
 	
 	
