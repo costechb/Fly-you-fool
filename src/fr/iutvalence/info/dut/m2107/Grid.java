@@ -20,10 +20,8 @@ public class Grid {
 	private ArrayList walls = new ArrayList();
 	private ArrayList areas = new ArrayList();
 
-	/**
-	 * 
-	 * @param x
-	 * @param y
+	/**Grid
+	 * Constructor or Grid
 	 */
 	public Grid() {
 		// TODO - implement Grid.Grid
@@ -37,6 +35,18 @@ public class Grid {
 			
 		throw new UnsupportedOperationException();
 	}
+	
+	public void showMap(){
+		System.out.println();
+		for(int i=0; i<height; i++){
+			for(int j=0; j<width; j++){
+				System.out.print(" | " + map[i][j]);
+			}
+			System.out.println(" | ");
+		}
+	}
+
+	
 
 	
 	private String level1 =
