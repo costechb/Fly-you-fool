@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class FlyYouFool {
 	
 	
-	public static void main(String[] args)  {			
+	public static void main(String[] args) throws InterruptedException  {			
 		boolean ok;
 		String name="Jarjar";
 		Scanner scPseudo = new Scanner(System.in);

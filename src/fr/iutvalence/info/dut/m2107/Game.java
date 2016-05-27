@@ -5,7 +5,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.util.*;
-import java.util.Scanner;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.WindowConstants;
@@ -14,7 +14,7 @@ public class Game extends JPanel {
 
 	private Hero hero;
 	private ArrayList<Enemy> enemies;
-	Grid map;
+	private Grid map;
 	protected IHM_Keyboard keyboard;
 	private IHM_View display;
 	
@@ -23,15 +23,12 @@ public class Game extends JPanel {
 	 * CECI EST A BUT DE TEST
 	 * VOUS POUVEZ FAIRE RUN
 	 * C EST POUR COMPRENDRE COMMENT AFFICHER DES TRUCS EN JAVA DE MANIERE FACILE
-	 * 
-	 * 
-	 * 
-	 * 
 	 */
 	int x = 0;
     int y = 0;
 
-    private void moveBall() {
+    @SuppressWarnings("unused")
+	private void moveBall() {
         x = x + 1;
         y = y + 1;
     }
@@ -53,19 +50,13 @@ public class Game extends JPanel {
 	
 	
 	//J'ai enlevé le posHero, la position est dans Grid au début du jeu
-    @SuppressWarnings("serial")
-	public Game() {
+    public Game() {
 		this.map= new Grid();
 		this.enemies=new ArrayList<Enemy>();
 		map.initWorld();
-		
 	}
 
-	public void play() {
-
-	}
-
-	public void run() {
+	public void run() throws InterruptedException {
 		//Create a window
 		JFrame myFrame = new JFrame("Fly you Fools");
 		Game game = new Game();
@@ -76,19 +67,12 @@ public class Game extends JPanel {
 		myFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		myFrame.setVisible(true);
 
-		//while (true) {
-        //    game.moveBall();
-        //    game.repaint();
-        //    Thread.sleep(10);
+		while (true) {
+			game.moveBall();
+			game.repaint();
+			Thread.sleep(10);
         }
 
-		/**
-		game.play();
-		Scanner sc = new Scanner(System.in);
-		String str = sc.nextLine();
-		char Move = str.charAt(0);
-		*/
-	
-	
+		}
 }
 	
