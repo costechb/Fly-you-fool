@@ -1,14 +1,10 @@
 package fr.iutvalence.info.dut.m2107;
 
-
-
 public class IHM_Keyboard {
 	
 	private Grid map;
 	private Hero hero;
 	
-	
-
 	/**
 	 * 
 	 * @param map
