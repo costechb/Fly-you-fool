@@ -14,6 +14,8 @@ public class Grid {
 	public Tile[][] map;
 	public static final int MAX_LENGTH_DEFAULT=40;
 	public static final int MAX_WIDTH_DEFAULT=40;
+	private int i;
+	private int j;
 
 	/**
 	 * IS the level finished or not
@@ -97,10 +99,20 @@ public class Grid {
 	 * @param x
 	 * @param y
 	 */
-	public Tile getTile(int x,  int y) {
+	
+	// A voir !!!
+	public Tile getTile(int i , int j ) {
 		// TODO - implement Grid.getTile
-		// j'ai changé le float en int puisque une tile est défini sur un int x et int y 
-		throw new UnsupportedOperationException();
+		for (i = 0; i < level1.length(); i++){
+			for (j = 0; j < level1.length(); j++){
+				
+				return map[i][j];
+			}
+			
+		}
+		return null;
+	
+		
 	}
 
 	public int getNbCol() {
@@ -116,9 +128,16 @@ public class Grid {
 	 * @param x
 	 * @param y
 	 */
-	public boolean inGrid(int x, int y) {
+	// A voir !!!
+	public boolean inGrid(int i, int j) {
 		// TODO - implement Grid.inGrid
-		throw new UnsupportedOperationException();
+		for (i = 0; i < level1.length(); i++){
+			for (j = 0; j < level1.length(); j++){
+				
+				return true;
+			}
+		}
+		return false;
 	}
 
 	@SuppressWarnings("unchecked")
