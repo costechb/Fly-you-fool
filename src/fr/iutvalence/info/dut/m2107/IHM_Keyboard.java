@@ -3,12 +3,8 @@ package fr.iutvalence.info.dut.m2107;
 
 
 public class IHM_Keyboard {
-	
 	private Grid map;
 	private Hero hero;
-	
-	
-
 	/**
 	 * 
 	 * @param map
@@ -98,7 +94,7 @@ public class IHM_Keyboard {
 			break;
 
 		default: 
-			// Dans le cas ou la lettre reçu n'est pas valide, on lève une exception
+			
 			throw new IHM_KeyboardException();	
 		}	
 	}
