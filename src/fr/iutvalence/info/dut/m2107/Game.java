@@ -71,8 +71,6 @@ public class Game extends JPanel {
 			game.moveBall();
 			game.repaint();
 			Thread.sleep(10);
-        }
-
+        	}
 		}
 }
-	
