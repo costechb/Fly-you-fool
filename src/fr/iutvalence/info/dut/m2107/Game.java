@@ -46,8 +46,6 @@ public class Game extends JPanel {
         this.map.initWorld();
         this.map.buildWorld(g2d);
     }
-
-	
 	
 	//J'ai enlevé le posHero, la position est dans Grid au début du jeu
     public Game() {
