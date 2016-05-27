@@ -65,9 +65,7 @@ public class Game extends JPanel {
 
 	}
 
-	
-	//J'ai supprimé le Main et je l'ai mis là, ça sert a rien d'avoir un Game et un Main ou il y a rien
-	public static void main(String[] args) throws InterruptedException {
+	public void run() {
 		//Create a window
 		JFrame myFrame = new JFrame("Fly you Fools");
 		Game game = new Game();

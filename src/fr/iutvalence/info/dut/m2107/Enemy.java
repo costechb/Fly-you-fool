@@ -20,5 +20,4 @@ public class Enemy extends Character {
 		
 		throw new UnsupportedOperationException();
 	}
-
 }
