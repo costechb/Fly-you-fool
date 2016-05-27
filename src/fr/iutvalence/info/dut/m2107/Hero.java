@@ -4,9 +4,8 @@ package fr.iutvalence.info.dut.m2107;
 public class Hero extends Character {
 
 	
-	public Hero(int x, int y) {
-		super(x, y);
-		// TODO Auto-generated constructor stub
+	public Hero(Tile pos) {
+		super(pos);
 	}
 
 	public void afficheHero() {

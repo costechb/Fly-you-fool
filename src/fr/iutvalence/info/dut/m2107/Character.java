@@ -14,9 +14,8 @@ public class Character {
 	 */
 	private Image image;
 
-	public Character(int x, int y) {
-		// TODO Auto-generated constructor stub
-		//
+	public Character(Tile pos) {
+		this.pos=pos;
 	}
 
 	/**
