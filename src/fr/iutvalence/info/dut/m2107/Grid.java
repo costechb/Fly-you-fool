@@ -8,10 +8,8 @@ import java.util.ArrayList;
 public class Grid {
 
 	Tile[] tabgrid;
-	private int nbCol;
-	private int nbLig;
-	private int TILESIZE = 20;
-	public Tile[][] map;
+	private int TILESIZE = 32;
+	public Tile[][] maped;
 	public static final int MAX_LENGTH_DEFAULT=40;
 	public static final int MAX_WIDTH_DEFAULT=40;
 	private int i;
@@ -47,12 +45,26 @@ public class Grid {
 	 */
 	public Grid() {
 
-		map = new Tile[nbCol][nbLig];
-		for (int i=0; i<MAX_LENGTH_DEFAULT; i++) {
-			for (int j=0; j<MAX_WIDTH_DEFAULT; j++) { 
+		this.maped = new Tile[levelwidth][levelheight];
+		int ordonnee=0;
+		int abcisse=0;
+		for (int i = 0; i < level1.length(); i++) {
+			abcisse=i%levelwidth;
+			char item = level1.charAt(i);
+			if (item == '\n') {
+				ordonnee++;
+				abcisse=0;
+			} else if (item == '#') {
+				//it is a wall so it is occuped				
+				maped[abcisse][ordonnee]= new Tile(true);
 				
-
-
+			} else if (item == '@') {
+				//TODO: Hero(tile) quand il y aura la méthode
+				//Hero hero = new Hero(x,y);
+			} else if (item == ' ') {
+				//it is free space so it is not occuped
+				maped[abcisse][ordonnee]= new Tile(false);
+				
 			}
 		}
 
@@ -63,7 +75,7 @@ public class Grid {
 		System.out.println();
 		for(int i=0; i<levelheight; i++){
 			for(int j=0; j<levelwidth; j++){
-				System.out.print(" | " + map[i][j]);
+				System.out.print(" | " + maped[i][j]);
 			}
 			System.out.println(" | ");
 		}
@@ -87,10 +99,10 @@ public class Grid {
 	// @:personnage
 	// x:ennemi
 	// 0:porte de sortie
-	// la porte a coté du héro est inaccessible a cause de l'ennemi,pour faire genre tutoriel
+	// la porte a coté du héros est inaccessible a cause de l'ennemi,pour faire genre tutoriel
 
-	private int levelwidth = 16;
-	private int levelheight = 10;
+	private int levelwidth = 10;
+	private int levelheight = 18;
 	
 	
 	
@@ -106,21 +118,13 @@ public class Grid {
 		for (i = 0; i < level1.length(); i++){
 			for (j = 0; j < level1.length(); j++){
 				
-				return map[i][j];
+				return maped[i][j];
 			}
 			
 		}
 		return null;
 	
 		
-	}
-
-	public int getNbCol() {
-		return this.nbCol;
-	}
-
-	public int getNbLig() {
-		return this.nbLig;
 	}
 
 	/**
@@ -147,26 +151,26 @@ public class Grid {
 	public final void initWorld() {
 		
 		int ordonnee=0;
-		int abcisse=0;
+		int abscisse=0;
 		for (int i = 0; i < level1.length(); i++) {
-			abcisse=i%levelwidth;
 			char item = level1.charAt(i);
-			if (item == '\n') {
+			switch (item){
+			case '\n':
 				ordonnee++;
-				abcisse=0;
-			} else if (item == '#') {
+				abscisse=0;
+				break;
+			case '#':
 				//it is a wall so it is occuped				
-				map[abcisse][ordonnee]= new Tile(true);
-				
-			} else if (item == '@') {
-				//TODO: Hero(tile) quand il y aura la méthode
-				//Hero hero = new Hero(x,y);
-			} else if (item == ' ') {
-				//it is free space so it is not occuped
-				map[abcisse][ordonnee]= new Tile(false);
-				
+				maped[ordonnee][abscisse]= new Tile(true);
+				abscisse++;				
+				break;
+			default:
+				maped[ordonnee][abscisse]= new Tile(false);
+				abscisse++;
+	
 			}
 		}
+			
 	}
 	/**
 	 * 
@@ -185,20 +189,20 @@ public class Grid {
 
 		for (int i = 0; i < levelwidth; i++) {
 			for (int j=0; j< levelheight; j++) {
-				if(map[i][j].occupant==null){
-					if(map[i][j].isSolid()){
+				if(maped[i][j].occupant==null){
+					if(maped[i][j].isSolid()){
 						g.setColor(new Color(102, 51, 0));
-						g.fillRect(i*TILESIZE, j*TILESIZE, TILESIZE, TILESIZE);
+						g.fillRect(j*TILESIZE, i*TILESIZE, TILESIZE, TILESIZE);
 					}
 					else {
 						g.setColor(new Color(255, 204, 0));
-						g.fillRect(i*TILESIZE, j*TILESIZE, TILESIZE, TILESIZE);
+						g.fillRect(j*TILESIZE, i*TILESIZE, TILESIZE, TILESIZE);
 						
 					}
 				}
-				else if (map[i][j].occupant instanceof Character){
+				else if (maped[i][j].occupant instanceof Character){
 					g.setColor(new Color(255, 0, 0));
-					g.fillRect(i*TILESIZE, j*TILESIZE, TILESIZE, TILESIZE);
+					g.fillRect(j*TILESIZE, i*TILESIZE, TILESIZE, TILESIZE);
 				}
 				
 				
@@ -207,10 +211,10 @@ public class Grid {
 				
 				
 				// truc cool: si est un Hero 
-				if (map[i][j].getOccupant() instanceof Hero){
+				if (maped[i][j].getOccupant() instanceof Hero){
 					//g.drawImage(item.getImage(), item.getPos().getX() + 2, item.getPos().getY() + 2, (ImageObserver) this);
 				}
-				else if (map[i][j].getOccupant() instanceof Enemy){
+				else if (maped[i][j].getOccupant() instanceof Enemy){
 					//g.drawImage(item.getImage(), item.getPos().getX(), item.getPos().getY(), (ImageObserver) this);
 				}
 				

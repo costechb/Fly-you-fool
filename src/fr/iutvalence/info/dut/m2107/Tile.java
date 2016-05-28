@@ -11,7 +11,7 @@ public class Tile {
 	Character occupant=null;
 	
 	// Tilesize : taille de la tuile niveau graphique, en px
-	private int TILESIZE = 20;
+	private int TILESIZE = 32;
 	
 	
 	

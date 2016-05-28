@@ -61,7 +61,7 @@ public class Game extends JPanel {
 		
 		//Default window options
 		myFrame.add(game);
-		myFrame.setSize(500,500);
+		myFrame.setSize(750,750);
 		myFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		myFrame.setVisible(true);
 
