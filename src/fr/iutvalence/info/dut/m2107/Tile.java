@@ -21,45 +21,7 @@ public class Tile {
 	// j'ai corrigé en conséquence la méthode isOccuped(), qui est donc toujours utilisable
 	private boolean solid=false;
 	
-	
-	// Je crois que x et y ne servent à rien, les coordonnées de la tile sont dans Grid exemple: Grid[i][j]= une tile
-	// Ce qui caractérise une tile c'est son image, sa taille, son caractère solide ou non, ainsi que son occupant
-	//Ce n'est pas une tile qu'on déplace ce sont les character qui changent de tile
-	//private int x;
-	//private int y;
 
-	/**
-	 * @return the x
-	 */
-	//public int getX() {
-	//	return x;
-	//}
-	
-	/**
-	 * @param x the x to set
-	 */
-	//public void setX(int x) {
-	//	this.x = x;
-	//}
-	
-	/**
-	 * @return the y
-	 */
-	//public int getY() {
-	//	return y;
-	//}
-	
-	/**
-	 * @param y the y to set
-	 */
-	//public void setY(int y) {
-	//	this.y = y;
-	//}
-	/**
-	 * @return the occupant
-	 */
-	
-	
 	
 	
 	public Character getOccupant() {
