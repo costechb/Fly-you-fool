@@ -55,20 +55,6 @@ public class Game extends JPanel {
 	}
 
 	public void run() throws InterruptedException {
-		//Create a window
-		JFrame myFrame = new JFrame("Fly you Fools");
-		Game game = new Game();
-		
-		//Default window options
-		myFrame.add(game);
-		myFrame.setSize(750,750);
-		myFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-		myFrame.setVisible(true);
 
-		while (true) {
-			game.moveBall();
-			game.repaint();
-			Thread.sleep(10);
-        	}
 		}
 }
