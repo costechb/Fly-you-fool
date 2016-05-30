@@ -18,20 +18,9 @@ public class Game extends JPanel {
 	protected IHM_Keyboard keyboard;
 	private IHM_View display;
 	
-	
-	/**
-	 * CECI EST A BUT DE TEST
-	 * VOUS POUVEZ FAIRE RUN
-	 * C EST POUR COMPRENDRE COMMENT AFFICHER DES TRUCS EN JAVA DE MANIERE FACILE
-	 */
-	int x = 0;
-    int y = 0;
 
-    @SuppressWarnings("unused")
-	private void moveBall() {
-        x = x + 1;
-        y = y + 1;
-    }
+
+ 
     
     @Override
     /**
@@ -42,8 +31,7 @@ public class Game extends JPanel {
         super.paint(g);
         Graphics2D g2d = (Graphics2D) g;
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
-            RenderingHints.VALUE_ANTIALIAS_ON);
-        this.map.initWorld();
+        RenderingHints.VALUE_ANTIALIAS_ON);
         this.map.buildWorld(g2d);
     }
 	
@@ -51,7 +39,6 @@ public class Game extends JPanel {
     public Game() {
 		this.map= new Grid();
 		this.enemies=new ArrayList<Enemy>();
-		map.initWorld();
 	}
 
 	public void run() throws InterruptedException {
@@ -65,10 +52,6 @@ public class Game extends JPanel {
 		myFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		myFrame.setVisible(true);
 
-		while (true) {
-			game.moveBall();
-			game.repaint();
-			Thread.sleep(10);
-        	}
+
 		}
 }
