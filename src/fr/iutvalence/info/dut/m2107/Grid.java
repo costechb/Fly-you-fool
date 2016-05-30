@@ -2,8 +2,7 @@ package fr.iutvalence.info.dut.m2107;
 
 import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.image.ImageObserver;
-import java.util.ArrayList;
+
 
 public class Grid {
 
@@ -25,8 +24,6 @@ public class Grid {
 	 * For display window
 	 */
 
-	private final int OFFSET = 30;
-	private final int SPACE = 20;
 
 	private String level1 =
 					 " ################ \n"
@@ -49,15 +46,6 @@ public class Grid {
 	private int levelheight = 18;
 
 
-	//private int getHeight() {
-
-	//	return this.height;
-	//}
-
-	//private int getWidth() {
-
-	//	return this.width;
-	//}
 
 	/**Grid
 	 * Constructor or Grid
@@ -66,26 +54,36 @@ public class Grid {
 
 		this.map = new Tile[levelwidth][levelheight];
 		int ordonnee=0;
-		int abcisse=0;
+		int abscisse=0;
 		for (int i = 0; i < level1.length(); i++) {
-			abcisse=i%levelwidth;
 			char item = level1.charAt(i);
-			if (item == '\n') {
+			switch (item){
+			case '\n':
 				ordonnee++;
-				abcisse=0;
-			} else if (item == '#') {
+				abscisse=0;
+				break;
+			case '#':
 				//it is a wall so it is occuped				
-				map[abcisse][ordonnee]= new Tile(true);
+				map[ordonnee][abscisse]= new Tile(true);
+				abscisse++;				
+				break;
+			case 'x':
+				map[ordonnee][abscisse]= new Tile(true,new Enemy(map[ordonnee][abscisse]));
+				abscisse++;
+				break;
 				
-			} else if (item == '@') {
-				//TODO: Hero(tile) quand il y aura la méthode
-				//Hero hero = new Hero(x,y);
-			} else if (item == ' ') {
-				//it is free space so it is not occuped
-				map[abcisse][ordonnee]= new Tile(false);
-				
+			case '@':
+				map[ordonnee][abscisse]= new Tile(true,new Hero(map[ordonnee][abscisse]));
+				abscisse++;
+				break;
+			
+			default:
+				map[ordonnee][abscisse]= new Tile(false);
+				abscisse++;				
+				break;
 			}
 		}
+
 
 
 	}
@@ -119,44 +117,7 @@ public class Grid {
 		return false;
 	}
 
-	@SuppressWarnings("unchecked")
-	/**
-	 * Reads the String level and place it in the map
-	 */
-	public final void initWorld() {
-		
-		int ordonnee=0;
-		int abscisse=0;
-		for (int i = 0; i < level1.length(); i++) {
-			char item = level1.charAt(i);
-			switch (item){
-			case '\n':
-				ordonnee++;
-				abscisse=0;
-				break;
-			case '#':
-				//it is a wall so it is occuped				
-				map[ordonnee][abscisse]= new Tile(true);
-				abscisse++;				
-				break;
-			case 'x':
-				map[ordonnee][abscisse]= new Tile(true,new Enemy(map[ordonnee][abscisse]));
-				abscisse++;
-				break;
-				
-			case '@':
-				map[ordonnee][abscisse]= new Tile(true,new Hero(map[ordonnee][abscisse]));
-				abscisse++;
-				break;
-			
-			default:
-				map[ordonnee][abscisse]= new Tile(false);
-				abscisse++;				
-				break;
-			}
-		}
-			
-	}
+
 	/**
 	 * 
 	 * @param g
