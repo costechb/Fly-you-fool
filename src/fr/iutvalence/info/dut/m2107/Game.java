@@ -17,11 +17,8 @@ public class Game extends JPanel {
 	private Grid map;
 	protected IHM_Keyboard keyboard;
 	private IHM_View display;
+	private Tile posSortie;
 	
-
-
- 
-    
     @Override
     /**
      * méthode obligatoire pour dessiner des trucs
@@ -35,17 +32,65 @@ public class Game extends JPanel {
         this.map.buildWorld(g2d);
     }
 	
-	//J'ai enlevé le posHero, la position est dans Grid au début du jeu
     public Game() {
-		this.map= new Grid();
-		this.enemies=new ArrayList<Enemy>();
+		this.map = new Grid();
+		System.out.println("\n This is the level you will play on \n");
+		System.out.println("You have to go on the target block at the end on the level \n");
+		this.hero = new Hero();
+		System.out.println("\n And this is your hero ! \n");
+		this.enemies = new ArrayList<Enemy>();
+		System.out.println("\n But there is some enemies that should not see you. Be careful ! \n");
 	}
+    
+	private boolean moveH(Hero theHero, Tile theTile){
+		
+		return true;
+	}
+	
+    public void run() throws InterruptedException {
+    	//Create a window
+    	JFrame myFrame = new JFrame("Fly you Fools");
+    	Game game = new Game();
+		 
+		//Default window options
+		myFrame.add(game);
+		myFrame.setSize(750,750);
+		myFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+		myFrame.setVisible(true);
+		 
+		 /*
+		  * Hugo : Algo du déroulement d'un tour, du jeu etc
+		  * ceci est sujet à changement(s)
+		  * 
+		  * lancer la boucle d'un tour de jeu (tant que la posHero n'est pas la posSortie ou que la posHero n'est pas dans les posChampDeVision)
+		  * 	demander au joueur la direction qu'il veut
+		  * 	enregistrer cette nouvelle position comme sa prochaine position
+		  * 	faire pareil avec les ennemis
+		  * 	actualiser les positions de tout le monde
+		  * 	réafficher la carte
+		  * fin de la boucle d'un tour
+		  * selon la position
+		  * 	sortie : afficher VICTORY
+		  * 	champDeVision : afficher YOU LOOSE
+		  * fin de la methode
+		  */
 
-	public void run() throws InterruptedException {
-
-<<<<<<< HEAD
-=======
-
->>>>>>> branch 'master' of https://github.com/costechb/Fly-you-fool.git
+		 while(hero.getPos()!=posSortie && !hero.isCaught(hero)) {
+			 System.out.println("\n Press the direction you want to go by, or Spacebar if you want to stay at your position  \n");
+			 
+			 char direction=keyboard.readKey();
+			 
+			 hero.moveHero();
+			 
+			 	enregistrer cette nouvelle position comme sa prochaine position
+			 	faire pareil avec les ennemis
+			 	actualiser les positions de tout le monde
+			 	réafficher la carte
+		 }		 
+		 selon la position
+		 	sortie : afficher VICTORY
+		 	champDeVision : afficher YOU LOOSE
+		 fin de la methode
+		  
 		}
 }

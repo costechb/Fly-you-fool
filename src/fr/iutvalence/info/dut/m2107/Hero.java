@@ -40,4 +40,10 @@ public class Hero extends Character {
 		throw new UnsupportedOperationException();
 	}
 
+	//méthode mise ici par Hugo qui renvoit vrai si le héro est sur une case du champ de vision d'un ennemis et faux dans le cas contraire. gl & hf
+	public boolean isCaught(Hero hero) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }
