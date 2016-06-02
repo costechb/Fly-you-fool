@@ -1,5 +1,6 @@
 package fr.iutvalence.info.dut.m2107;
 
+import java.util.ArrayList;
 
 public class Enemy extends Character {
 
@@ -11,7 +12,6 @@ public class Enemy extends Character {
 	Tile champDeVision;
 	
 	/**
-	 * 
 	 * @param letter
 	 */
 	public void moveEnemy(char letter) {
@@ -19,6 +19,12 @@ public class Enemy extends Character {
 		
 		
 		throw new UnsupportedOperationException();
+	}
+	
+	public ArrayList enemyView(){
+		ArrayList viewEnemy = new ArrayList();
+		
+		return null;
 	}
 
 	public Object moveEnemy() {

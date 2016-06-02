@@ -1,5 +1,6 @@
 package fr.iutvalence.info.dut.m2107;
 
+import java.util.ArrayList;
 
 public class Hero extends Character {
 
@@ -38,12 +39,6 @@ public class Hero extends Character {
 		// TODO - implement Hero.stopHero
 		
 		throw new UnsupportedOperationException();
-	}
-
-	//méthode mise ici par Hugo qui renvoit vrai si le héro est sur une case du champ de vision d'un ennemis et faux dans le cas contraire. gl & hf
-	public boolean isCaught(Hero hero) {
-		// TODO Auto-generated method stub
-		return false;
 	}
 
 	public void moveHero(char direction) {
@@ -112,9 +107,14 @@ public class Hero extends Character {
 		
 	}
 
-	public boolean isCaught() {
+	public boolean isCaught(ArrayList<Enemy> enemies) {
 		// TODO Auto-generated method stub
 		// check chaque case pour chaque enemy
+		enemies.forEach(enemies-> {
+			for(){
+				
+			}
+		});
 		
 		return false;
 	}
