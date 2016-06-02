@@ -95,7 +95,7 @@ public class Grid {
 	 */
 	
 	// A voir !!!
-	public Tile getTile(int i, int j) {
+	public  Tile getTile(int i, int j) {
 		
 		return map[i][j];
 	}
