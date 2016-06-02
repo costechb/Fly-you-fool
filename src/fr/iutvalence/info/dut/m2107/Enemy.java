@@ -20,4 +20,9 @@ public class Enemy extends Character {
 		
 		throw new UnsupportedOperationException();
 	}
+
+	public Object moveEnemy() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
