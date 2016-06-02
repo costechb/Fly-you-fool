@@ -13,6 +13,8 @@ public class Grid {
 	public static final int MAX_WIDTH_DEFAULT=40;
 	private int i;
 	private int j;
+	private Tile PosSortie;
+	private Tile PosEntry;
 
 	/**
 	 * IS the level finished or not
@@ -162,7 +164,12 @@ public class Grid {
 		}
 		
 	}
-
+	public Tile getPosSortie(){
+		return this.PosSortie;
+	}
+	public Tile getPosEntry(){
+		return this.PosEntry;
+	}
 	
 }//End of Grid Class
 
