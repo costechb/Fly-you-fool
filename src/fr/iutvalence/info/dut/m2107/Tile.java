@@ -38,8 +38,6 @@ public class Tile {
 
 	/**
 	 * 
-	 * @param x
-	 * @param y
 	 * @param occupation
 	 * Pour définir une case avec un Character
 	 */

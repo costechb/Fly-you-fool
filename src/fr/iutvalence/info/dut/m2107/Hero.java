@@ -24,7 +24,7 @@ public class Hero extends Character {
 
 		this.setMov(tile);	
 		throw new UnsupportedOperationException();
-		// J'ai changï¿½ le paramï¿½tre letter en tile
+		// J'ai change le parametre letter en tile
 		// Pour prendre sa position et lui en attribuer une nouvelle
 		
 
@@ -56,78 +56,67 @@ public class Hero extends Character {
 		return false;
 	}
 
+
+
+	public void moveHeroTile(){
+		int i=0, j=0;
+		char direction;
+		//Utiliser le scanner dans le main, récupérer la touche saisi et la passer en paramètre de movehero
+		if(direction=='z') {
+				// Avancer d'une case
+				// Récupérer la case sur laquelle on veut se déplacer
+				Tile tileToMoveForward = setPos( i+1 , j);	
+				
+				// On appelle la méthode de la vérification de la case
+				if (checkMov(tileToMoveForward)==true) {
+					// On lance le déplacement du héro
+					moveHero(tileToMoveForward);
+					
+				} else {
+					// La case n'est pas libre
+				}
+		}
+		if(direction=='q') {
+			// Avancer d'une case
+			// Récupérer la case sur laquelle on veut se déplacer
+			Tile tileToMoveLeft = setPos( i , j+1 );	
+			
+			// On appelle la méthode de la vérification de la case
+			if (checkMov(tileToMoveLeft)==true) {
+				// On lance le déplacement du héro
+				moveHero(tileToMoveLeft);
+				
+			} else {
+				// La case n'est pas libre
+			}
+		}
+		if(direction=='s') {
+			// Avancer d'une case
+			// Récupérer la case sur laquelle on veut se déplacer
+			Tile tileToMoveBackward = setPos( i-1 , j );	
+			
+			// On appelle la méthode de la vérification de la case
+			if (checkMov(tileToMoveBackward)==true) {
+				// On lance le déplacement du héro
+				moveHero(tileToMoveBackward);
+				
+			} else {
+				// La case n'est pas libre
+			}
+		}
+		if(direction=='d') {
+			// Avancer d'une case
+			// Récupérer la case sur laquelle on veut se déplacer
+			Tile tileToMoveRight = setPos( i , j-1);	
+			
+			// On appelle la méthode de la vérification de la case
+			if (checkMov(tileToMoveRight)==true) {
+				// On lance le déplacement du héro
+				moveHero(tileToMoveRight);
+				
+			} else {
+				// La case n'est pas libre
+			}
+		}
+	}
 }
-
-/*
-//Récupérer la position du héro
-Tile tile = this.hero.getPos();
-//Utiliser le scanner dans le main, récupérer la touche saisi et la passer en paramètre de movehero
-switch (Move) {
-
-case 'z':
-	// Avancer d'une case
-	// Récupérer la case sur laquelle on veut se déplacer
-	Tile tileToMoveForward = this.map.getTile( tile.getX() + 1, tile.getY());
-	// On appelle la méthode de la vérification de la case
-	if (this.hero.checkMov(tileToMoveForward)) {
-		// On lance le déplacement du héro
-		this.hero.moveHero(tileToMoveForward);
-		
-	} else {
-		// La case n'est pas libre
-	}
-	break;
-
-case 'q': 
-	
-	// Aller à gauche d'une case
-	// Récupérer la case sur laquelle on veut se déplacer
-	Tile tileToMoveLeft = this.map.getTile( tile.getX() , tile.getY() + 1 );
-	// On appelle la méthode de la vérification de la case
-	if (this.hero.checkMov(tileToMoveLeft)) {
-		// On lance le déplacement du héro
-		this.hero.moveHero(tileToMoveLeft);
-		
-	} else {
-		// La case n'est pas libre
-	}
-	break;
-	
-case 's':
-	
-	//Reculer d'une case
-	// Récupérer la case sur laquelle on veut se déplacer
-	//TODO: utiliser Grid, les tile n'ont pas de coordonnées
-	Tile tileToMoveBackward = this.map.getTile( tile.getX() - 1 , tile.getY()  );
-	// On appelle la méthode de la vérification de la case
-	if (this.hero.checkMov(tileToMoveBackward)) {
-		// On lance le déplacement du héro
-		this.hero.moveHero(tileToMoveBackward);
-		
-	} else {
-		// La case n'est pas libre
-	}
-	break;
-	
-case 'd': 
-	
-	// Aller à droite d'une case
-	// Récupérer la case sur laquelle on veut se déplacer
-	//TODO: utiliser Grid, les tile n'ont pas de coordonnées
-	Tile tileToMoveRight = this.map.getTile( tile.getX()  , tile.getY() - 1);
-	// On appelle la méthode de la vérification de la case
-	if (this.hero.checkMov(tileToMoveRight )) {
-		// On lance le déplacement du héro
-		this.hero.moveHero(tileToMoveRight );
-		
-	} else {
-		// La case n'est pas libre
-	}
-	
-	
-	break;
-
-default: 
-	// Dans le cas ou la lettre reçu n'est pas valide, on lève une exception
-	throw new IHM_KeyboardException();	
-}	*/
