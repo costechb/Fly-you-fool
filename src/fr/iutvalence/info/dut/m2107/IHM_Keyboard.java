@@ -1,8 +1,11 @@
 package fr.iutvalence.info.dut.m2107;
+import java.util.Scanner;
 
 public class IHM_Keyboard {
 	private Grid map;
 	private Hero hero;
+	private int i;
+	private int j;
 	
 	
 
@@ -34,7 +37,7 @@ public class IHM_Keyboard {
 		case 'z':
 			// Avancer d'une case
 			// Récupérer la case sur laquelle on veut se déplacer
-			Tile tileToMoveForward = this.map.getTile( tile.getX() + 1, tile.getY());
+			Tile tileToMoveForward = this.map.getTile( i+1 , j);
 			// On appelle la méthode de la vérification de la case
 			if (this.hero.checkMov(tileToMoveForward)) {
 				// On lance le déplacement du héro
@@ -49,7 +52,7 @@ public class IHM_Keyboard {
 			
 			// Aller à gauche d'une case
 			// Récupérer la case sur laquelle on veut se déplacer
-			Tile tileToMoveLeft = this.map.getTile( tile.getX() , tile.getY() + 1 );
+			Tile tileToMoveLeft = this.map.getTile( i , j+1 );
 			// On appelle la méthode de la vérification de la case
 			if (this.hero.checkMov(tileToMoveLeft)) {
 				// On lance le déplacement du héro
@@ -65,7 +68,7 @@ public class IHM_Keyboard {
 			//Reculer d'une case
 			// Récupérer la case sur laquelle on veut se déplacer
 			//TODO: utiliser Grid, les tile n'ont pas de coordonnées
-			Tile tileToMoveBackward = this.map.getTile( tile.getX() - 1 , tile.getY()  );
+			Tile tileToMoveBackward = this.map.getTile( i-1 , j );
 			// On appelle la méthode de la vérification de la case
 			if (this.hero.checkMov(tileToMoveBackward)) {
 				// On lance le déplacement du héro
@@ -81,7 +84,7 @@ public class IHM_Keyboard {
 			// Aller à droite d'une case
 			// Récupérer la case sur laquelle on veut se déplacer
 			//TODO: utiliser Grid, les tile n'ont pas de coordonnées
-			Tile tileToMoveRight = this.map.getTile( tile.getX()  , tile.getY() - 1);
+			Tile tileToMoveRight = this.map.getTile( i , j-1);
 			// On appelle la méthode de la vérification de la case
 			if (this.hero.checkMov(tileToMoveRight )) {
 				// On lance le déplacement du héro
@@ -99,6 +102,14 @@ public class IHM_Keyboard {
 			throw new IHM_KeyboardException();	
 		}	
 	}
+	
+	public void readkey(){
+		
+		Scanner sc = new Scanner(System.in);
+		String str = sc.nextLine();
+		char letter = str.charAt(0);
+	}
+	
 	
 	/**
 	 * @return the map
