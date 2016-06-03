@@ -1,5 +1,6 @@
 package fr.iutvalence.info.dut.m2107;
 
+import java.util.ArrayList;
 
 public class Hero extends Character {
 
@@ -40,29 +41,13 @@ public class Hero extends Character {
 		throw new UnsupportedOperationException();
 	}
 
-	//méthode mise ici par Hugo qui renvoit vrai si le héro est sur une case du champ de vision d'un ennemis et faux dans le cas contraire. gl & hf
-	public boolean isCaught(Hero hero) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
 	public void moveHero(char direction) {
 		// TODO Auto-generated method stub
-		
-	}
-
-	public boolean isCaught() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-
-
-	public void moveHeroTile(){
 		int i=0, j=0;
-		char direction;
-		//Utiliser le scanner dans le main, récupérer la touche saisi et la passer en paramètre de movehero
-		if(direction=='z') {
+		
+		switch(direction){
+		
+		case'z':
 				// Avancer d'une case
 				// Récupérer la case sur laquelle on veut se déplacer
 				Tile tileToMoveForward = setPos( i+1 , j);	
@@ -75,48 +60,62 @@ public class Hero extends Character {
 				} else {
 					// La case n'est pas libre
 				}
-		}
-		if(direction=='q') {
-			// Avancer d'une case
-			// Récupérer la case sur laquelle on veut se déplacer
-			Tile tileToMoveLeft = setPos( i , j+1 );	
 			
-			// On appelle la méthode de la vérification de la case
-			if (checkMov(tileToMoveLeft)==true) {
-				// On lance le déplacement du héro
-				moveHero(tileToMoveLeft);
+		case'q':
+				// Avancer d'une case
+				// Récupérer la case sur laquelle on veut se déplacer
+				Tile tileToMoveLeft = setPos( i , j+1 );	
 				
-			} else {
-				// La case n'est pas libre
-			}
-		}
-		if(direction=='s') {
-			// Avancer d'une case
-			// Récupérer la case sur laquelle on veut se déplacer
-			Tile tileToMoveBackward = setPos( i-1 , j );	
+				// On appelle la méthode de la vérification de la case
+				if (checkMov(tileToMoveLeft)==true) {
+					// On lance le déplacement du héro
+					moveHero(tileToMoveLeft);
+					
+				} else {
+					// La case n'est pas libre
+				}
+	
+		case's':
+				// Avancer d'une case
+				// Récupérer la case sur laquelle on veut se déplacer
+				Tile tileToMoveBackward = setPos( i-1 , j );	
+				
+				// On appelle la méthode de la vérification de la case
+				if (checkMov(tileToMoveBackward)==true) {
+					// On lance le déplacement du héro
+					moveHero(tileToMoveBackward);
+					
+				} else {
+					// La case n'est pas libre
+				}
 			
-			// On appelle la méthode de la vérification de la case
-			if (checkMov(tileToMoveBackward)==true) {
-				// On lance le déplacement du héro
-				moveHero(tileToMoveBackward);
+		case'd':
+				// Avancer d'une case
+				// Récupérer la case sur laquelle on veut se déplacer
+				Tile tileToMoveRight = setPos( i , j-1);	
 				
-			} else {
-				// La case n'est pas libre
-			}
+				// On appelle la méthode de la vérification de la case
+				if (checkMov(tileToMoveRight)==true) {
+					// On lance le déplacement du héro
+					moveHero(tileToMoveRight);
+					
+				} else {
+					// La case n'est pas libre
+				}
+		
 		}
-		if(direction=='d') {
-			// Avancer d'une case
-			// Récupérer la case sur laquelle on veut se déplacer
-			Tile tileToMoveRight = setPos( i , j-1);	
-			
-			// On appelle la méthode de la vérification de la case
-			if (checkMov(tileToMoveRight)==true) {
-				// On lance le déplacement du héro
-				moveHero(tileToMoveRight);
+		
+	}
+
+	public boolean isCaught(ArrayList<Enemy> enemies) {
+		// TODO Auto-generated method stub
+		// check chaque case pour chaque enemy
+		enemies.forEach(enemies-> {
+			for(){
 				
-			} else {
-				// La case n'est pas libre
 			}
-		}
+		});
+		
+		return false;
 	}
 }
